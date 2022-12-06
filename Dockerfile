@@ -13,5 +13,4 @@ EXPOSE 1025 1080
 RUN ECHO $PORT
 RUN ECHO ${PORT}
 
-ENTRYPOINT ["mailcatcher", "--foreground"]
-CMD ["--ip", "0.0.0.0", "--http-port", $PORT]
+CMD ["mailcatcher", "--foreground", "--ip", "0.0.0.0", "--http-port", "$PORT"]
