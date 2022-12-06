@@ -9,6 +9,6 @@ RUN apk add --no-cache build-base sqlite-libs sqlite-dev && \
 
 EXPOSE 1025 1080
 
-RUN "echo $PORT"
+RUN "/bin/echo $PORT"
 
 CMD ["mailcatcher", "--foreground", "--ip", "0.0.0.0", "--http-port", "$PORT"]
