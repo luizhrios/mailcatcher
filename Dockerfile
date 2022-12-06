@@ -2,6 +2,7 @@ FROM ruby:3.0-alpine
 MAINTAINER Samuel Cochran <sj26@sj26.com>
 
 ARG VERSION=0.8.2
+ENV PORT
 
 RUN apk add --no-cache build-base sqlite-libs sqlite-dev && \
     gem install mailcatcher -v $VERSION && \
@@ -9,8 +10,8 @@ RUN apk add --no-cache build-base sqlite-libs sqlite-dev && \
 
 EXPOSE 1025 1080
 
-ECHO $PORT
-ECHO ${PORT}
+RUN ECHO $PORT
+RUN ECHO ${PORT}
 
 ENTRYPOINT ["mailcatcher", "--foreground"]
-CMD ["--ip", "0.0.0.0", "--http-port", ${PORT}]
+CMD ["--ip", "0.0.0.0", "--http-port", $PORT]
