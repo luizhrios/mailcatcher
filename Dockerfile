@@ -11,4 +11,4 @@ EXPOSE 1025 80
 
 RUN printenv
 
-CMD ["mailcatcher", "--ip", "0.0.0.0", "--http-port", "443"]
+CMD ["mailcatcher", "--foreground", "--ip", "0.0.0.0", "--http-port", "443"]
